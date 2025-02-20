@@ -91,9 +91,12 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
         }
 
         if (moveCount == 9){
-            JOptionPane.showMessageDialog(this, "It's a tie!");
-            resetGame();
-            return;
+            int response = JOptionPane.showConfirmDialog(this, "It's a Tie! Play again?", "Game Over", JOptionPane.YES_NO_OPTION);
+            if (response == JOptionPane.YES_OPTION){
+                resetGame();
+            } else {
+                System.exit(0);
+            }
         }
 
         xTurn = !xTurn;
